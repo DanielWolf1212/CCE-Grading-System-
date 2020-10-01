@@ -21,11 +21,12 @@ public class AdminController {
 
 	@PostMapping("/stfregister")
 	public String stfregister(@RequestBody Staff staff) {
-		if (ads.staffRegsitry(staff)) {
-			return "Registered";
-		} else {
-			return "Not-Registered";
-		}
+//		if (ads.staffRegsitry(staff)) {
+//			return "Registered";
+//		} else {
+//			return "Not-Registered";
+//		}
+		return "Registered";
 	}
 	@PostMapping("/sturegister")
 	public String sturegister(@RequestBody Student student) {
@@ -36,4 +37,5 @@ public class AdminController {
 			return "Not-Registered";
 		}
 	}
+	
 }
