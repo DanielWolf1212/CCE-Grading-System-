@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -14,6 +16,9 @@ import javax.persistence.Table;
 public class StudentMarkList {
 	
 		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private int id;
+		@Column(name = "sid")
 		private String sid;
 		@Column(name="standard")
 		private String standard;
@@ -101,8 +106,15 @@ public class StudentMarkList {
 //		public void setStu(Student stu) {
 //			this.stu = stu;
 //		}
+		
 		public String getSid() {
 			return sid;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
 		}
 		public void setSid(String sid) {
 			this.sid = sid;

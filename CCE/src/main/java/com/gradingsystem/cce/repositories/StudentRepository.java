@@ -14,4 +14,7 @@ public interface StudentRepository extends JpaRepository<Student, String> {
 	
 	@Query("select s from Student s where s.sid=?1")
 	List<Student> findAllStudent(String sid);
+
+	@Query("select s from Student s where s.standard=?1 and s.section=?2")
+	List<Student> findAllStudentStandards(String standard, String section);
 }

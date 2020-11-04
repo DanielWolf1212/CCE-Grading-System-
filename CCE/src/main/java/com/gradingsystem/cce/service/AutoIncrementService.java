@@ -44,23 +44,31 @@ public class AutoIncrementService {
 			sid = stu.getSid();
 		}
 		if (sid.equals("")) {
-			sid = "STU" + student.getStandard() + student.getSection() + "1";
+			sid = "STU" + student.getStandard() + student.getSection() + "01";
 		} else {
 			if(student.getStandard().length()==1) {
-				int r = Integer.parseInt(sid.substring(5));
-				r++;
-				sid = sid.substring(0, 5) + r;
-			}
-			else if(student.getStandard().length()==2) {
-				System.out.println("--------");
 				int r = Integer.parseInt(sid.substring(6));
 				r++;
 				sid = sid.substring(0, 6) + r;
+				if(sid.length()>7) {
+					sid=sid.substring(0,5)+sid.substring(6);
+				}
 			}
-			else {
+			else if(student.getStandard().length()==2) {
 				int r = Integer.parseInt(sid.substring(7));
 				r++;
 				sid = sid.substring(0, 7) + r;
+				if(sid.length()>8) {
+					sid=sid.substring(0,6)+sid.substring(7);
+				}
+			}
+			else {
+				int r = Integer.parseInt(sid.substring(8));
+				r++;
+				sid = sid.substring(0, 8) + r;
+				if(sid.length()>9) {
+					sid=sid.substring(0,7)+sid.substring(8);
+				}
 			}
 		}
 		return sid;
